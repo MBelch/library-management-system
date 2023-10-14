@@ -188,10 +188,5 @@ public class Bibliotheque {
     public static void main(String[] args){
         Bibliotheque b= new Bibliotheque(10,10);
         System.out.println(b);
-    }
-    
-    
-
-    
-    
+    }    
 }
