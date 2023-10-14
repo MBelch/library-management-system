@@ -21,11 +21,11 @@ public class Bibliotheque2 {
     
     public String toString(){
     
-        String ch="";
-       ch=ch+"**************************************\n"  ;       
-       ch=ch+"********  Liste Des Documents ********\n"  ;  
-       ch=ch+"**************************************\n"  ;
-       for(int i=0;i<ListeDocument.size();i++){
+	String ch="";
+	ch=ch+"**************************************\n"  ;       
+	ch=ch+"********  Liste Des Documents ********\n"  ;  
+	ch=ch+"**************************************\n"  ;
+for(int i=0;i<ListeDocument.size();i++){
            ch=ch+"\t Document "+i+":\n";
            ch=ch+"\t"+ListeDocument.get(i).toString();
        }
@@ -197,95 +197,72 @@ public class Bibliotheque2 {
         
         if(type){
             
-         System.out.println("Donner le cin");
-         String cin = Sc.next();
-         
-        System.out.println("Donner la matiere");
-        String matier = Sc.next();
-        
-            Adh = new Professeur(cin,matier,Nom,Prenom,age);
-        }
+	        System.out.println("Donner le cin");
+	        String cin = Sc.next();
+	         
+	        System.out.println("Donner la matiere");
+	        String matier = Sc.next();
+	        
+	        Adh = new Professeur(cin,matier,Nom,Prenom,age);
+	}
         
         else{
 
-         System.out.println("Donner le cne");
-         String cne = Sc.next();
-         
-        System.out.println("Donner la filier");
-        String filiere = Sc.next();
-        
-          Adh = new Etudiant(cne,filiere,Nom,Prenom,age);
-    }
-       
-            
-            AjouterAdherent(Adh);
-                
-            
-        
-        
-        return Adh;
-                
-             
-    }
-    
+	        System.out.println("Donner le cne");
+	        String cne = Sc.next();
+	         
+	        System.out.println("Donner la filier");
+	        String filiere = Sc.next();
+	        
+	        Adh = new Etudiant(cne,filiere,Nom,Prenom,age);
+	}
+            AjouterAdherent(Adh);    
+            return Adh;
+}
     
     boolean Authentification(boolean type){
-       
-    
-            boolean test = false;
-
+	boolean test = false;
         Scanner Sc = new Scanner(System.in);
        
-    if(type){  // professeur type = true
+	if(type){  // professeur type = true
         
-        System.out.println("Donner le cin");
-        String Cin = Sc.next();
-        System.out.println("Donner le password");
-        String password = Sc.next();  
-        
-        if(getProfesseurByCin(Cin) != -1){
-            
-           // if(ListeAdherent.get(getProfesseurByCin(Cin)).getPassword().equals(password)){
-                
-              //  return ListeAdherent.get(getProfesseurByCin(Cin));
-                test = true;
-            //}      
-        }    
-         
-              
-  }
+	        System.out.println("Donner le cin");
+	        String Cin = Sc.next();
+	        System.out.println("Donner le password");
+	        String password = Sc.next();  
+	        
+	        if(getProfesseurByCin(Cin) != -1){
+	            
+	           // if(ListeAdherent.get(getProfesseurByCin(Cin)).getPassword().equals(password)){  
+	              //  return ListeAdherent.get(getProfesseurByCin(Cin));
+	        	test = true;
+	            //}      
+	        }    
+         }
     
-    else{  // etudiant
-                
-        System.out.println("Donner le cne");
-        String Cne = Sc.next();
-        System.out.println("Donner le password");
-        String password = Sc.next();  
-        
-        if(getEtudiantByCne(Cne) != -1){
-            
-          //   if(ListeAdherent.get(getEtudiantByCne(Cne)).getPassword().equals(password)){
-                 
-                   //return ListeAdherent.get(getEtudiantByCne(Cne));
-                   test = true;
-          //   }
-            
-            
-        }    
-         
+    	else{  // etudiant
+	                
+	        System.out.println("Donner le cne");
+	        String Cne = Sc.next();
+	        System.out.println("Donner le password");
+	        String password = Sc.next();  
+	        
+	        if(getEtudiantByCne(Cne) != -1){
+	            
+	          //   if(ListeAdherent.get(getEtudiantByCne(Cne)).getPassword().equals(password)){
+	                 //return ListeAdherent.get(getEtudiantByCne(Cne));
+	                   test = true;
+	          //   }
+            	}    
                         
-     }  
-                
-  
+     	}  
         return test;
-  
  }    
     
   
     static int Menu(){
- 
-            
-            int choix;
+    
+        int choix;
         Scanner SC = new Scanner(System.in);
         
         do{
@@ -303,14 +280,8 @@ public class Bibliotheque2 {
                         choix = SC.nextInt();    
                                               
     	}while(choix < 0 ||  choix > 8);
-    	
-    	
            return choix;
-        
-        
-        
     }
-    
     
  static int Menu_Document(){
     	int choix;
@@ -349,7 +320,7 @@ public class Bibliotheque2 {
   public static void main(String[] args){
          
         Bibliotheque2 Biblio = new Bibliotheque2();
-Connection_BD db=new Connection_BD();
+	Connection_BD db=new Connection_BD();
         int choix, choix2, choix3; 
         Adherent Adh = null;
         boolean test = false;
@@ -361,20 +332,16 @@ Connection_BD db=new Connection_BD();
         do{
            
              choix = MenuPrincipal();
-             
              switch(choix){
-                 
                 case 1:      // Authentification
                      
                      if(Biblio == null){
                          System.out.println("la bibliotheque est vide");
                      }
-                     else{
-                         
-                    System.out.println("Si vous etes un Professeur  Taper 1");
-                    System.out.println("Si vous etes un Etudiant    Taper 2");
-                    
-                     val = sc.nextInt();                         
+                     else{   
+                    	System.out.println("Si vous etes un Professeur  Taper 1");
+                    	System.out.println("Si vous etes un Etudiant    Taper 2");
+                     	val = sc.nextInt();                         
                          
                   if(val == 1){
                       test = Biblio.Authentification(true);
@@ -486,57 +453,37 @@ Connection_BD db=new Connection_BD();
                                         System.out.println("\n l'ajout est echouer");
                                     }
                                 
-                                   
                           case 6:   // supprimer un document
-
                                 System.out.println("\n Saisir le titre");
                                 chaine = sc.next();
-
-                                     if(Biblio.SupprimerDocument(chaine)){
-                                        
-                                         System.out.println("\n le document a ete supprimer");
+                                if(Biblio.SupprimerDocument(chaine)){
+                		         System.out.println("\n le document a ete supprimer");
                                 
-                                     }                             
-                                     else{
-                                         
+                        	}                             
+                                else{         
                                          System.out.println("\n la suppression a ete echouer");
-                                     }
+                                }
                                      
                           case 7: // Chercher un document
-                              
                               do{
-                                 
-                                 choix3 = Menu_Document();
-                              
-                            
-                                
-                                switch(choix3){
-                                  
+                                choix3 = Menu_Document();  
+                                switch(choix3){ 
 	    	                        case 1: 
-                                                  System.out.print("\n Saisir le ISBN :");
-	    	                                   chaine = sc.next();
-	    	                           if(Biblio.getDocumentByIsbn(chaine) != -1){
-                                               
+					   System.out.print("\n Saisir le ISBN :");
+					   chaine = sc.next();
+	    	                           if(Biblio.getDocumentByIsbn(chaine) != -1){    
                                                    System.out.println(Biblio.getDocumentByIsbn(chaine));
-	    	                        		 
-	    	                           }
-                                           
-                                           else{
-                                               
+                                           else
                                                System.out.println("\n Ce document " + chaine + " n'existe pas" );
-                                           
                                            }
-	    	                                    break;		  
-	    	                                  
+	    	                	   break;		         
                                                     
 	    	                        case 2: 
                                                
-                                               System.out.println("\n Saisir le Titre du document :");
-	    	                                      chaine=sc.next();
-	    	                           if(Biblio.getDocumentByTitre(chaine) != -1){
-                                               
+                                        	System.out.println("\n Saisir le Titre du document :");
+	    	                        	chaine=sc.next();
+	    	                        	if(Biblio.getDocumentByTitre(chaine) != -1){
                                                    System.out.println(Biblio.getDocumentByTitre(chaine));
-	    	                        		 
 	    	                           }
                                            
                                            else{
@@ -564,9 +511,7 @@ Connection_BD db=new Connection_BD();
                                                      }    
                               
                                                System.out.println("\n Ce document " + chaine + " n'existe pas" );
-                                                      break;
-                                                      
-                                                  
+                                                      break; 
                                                       
 	    	                        case 4: 
                                                
@@ -650,11 +595,6 @@ Connection_BD db=new Connection_BD();
                 }
            
        }while(choix !=0);
-       
-        
-    
-
-    
     
   }
 
